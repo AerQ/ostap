@@ -13,7 +13,7 @@ public class Main {
     private static ArrayList<Triangle> triangles = new ArrayList<>();
     private static ArrayList<Square> squares = new ArrayList<>();
     private static final Logger logger = Logger.getLogger("aerQ");
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TooOldException,TooYoungException  {
 //        int sum = 0;
 
 //        for(String singleChar : ololo.split("")) {
@@ -36,7 +36,7 @@ public class Main {
 //        System.out.println("--------");
 //        System.out.print( result1);
 
-        
+
         int value = 10 / 2;
         System.out.println("Two");
         System.out.println("One");
@@ -110,9 +110,17 @@ public class Main {
         logger.info("Максимальная и минимальная площадь квадрата:"+"\n" + circles.get(0).getArea()+"\n" + circles.get(circles.size() -1 ).getArea() +"\n");
         logger.info("Максимальная и минимальная площадь квадрата:"+"\n" + triangles.get(0).getArea()+"\n" + triangles.get(triangles.size() -1 ).getArea());
 
-
+        int age = 39;
+        checkAge(age);
     }
-
+        public static void checkAge(int age) throws TooYoungException, TooOldException{
+        if (age < 18){
+            throw new TooYoungException("Age" + age + "too young");
+        }else if (age>40){
+            throw new TooOldException("Age" + age + "too old");
+        }
+            System.out.println("Age " + age + " It`s OK!");
+        }
 }
 
 
