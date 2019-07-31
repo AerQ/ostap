@@ -2,6 +2,7 @@ import AbstractShape.Circle.Circle;
 import AbstractShape.Square.Square;
 import AbstractShape.Triangle.Triangle;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.Collections;
 import java.util.logging.Logger;
@@ -14,27 +15,39 @@ public class Main {
     private static final Logger logger = Logger.getLogger("aerQ");
     public static void main(String[] args) {
 //        int sum = 0;
-//
+
 //        for(String singleChar : ololo.split("")) {
 //            int parsed = Integer.parseInt(singleChar);
 //            sum += parsed;
 //        }
 //        System.out.println(sum);
 //    }
-        Scanner scan = new Scanner(System.in);
-        int num1 = scan.nextInt();
-        int num2 = scan.nextInt();
-        int result = num1*num2;
-        System.out.print("--------");
-        System.out.print("\n" + result);
-        System.out.println(" ");
+//        Scanner scan = new Scanner(System.in);
+//        int num1 = scan.nextInt();
+//        int num2 = scan.nextInt();
+//        int result = num1*num2;
+//        System.out.print("--------");
+//        System.out.print("\n" + result);
+//        System.out.println(" ");
+//
+//        int x = scan.nextInt();
+//        int c = scan.nextInt();
+//        int result1 = x*c;
+//        System.out.println("--------");
+//        System.out.print( result1);
 
-        int x = scan.nextInt();
-        int c = scan.nextInt();
-        int result1 = x*c;
-        System.out.println("--------");
-        System.out.print( result1);
-
+        
+        int value = 10 / 2;
+        System.out.println("Two");
+        System.out.println("One");
+        try{
+            value = 10/0;
+            System.out.println("value:" + value);
+        }catch (ArithmeticException e){
+            System.out.println("ERROR:" + e.getMessage());
+            System.out.println("строка блока кода будет выполнена!!!");
+        }
+        System.out.println("погнали");
 
         String number = "1234567";
         int sum = 0;
@@ -99,6 +112,7 @@ public class Main {
 
 
     }
+
 }
 
 
