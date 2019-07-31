@@ -28,7 +28,7 @@ public class Main {
         System.out.print("--------");
         System.out.print("\n" + result);
         System.out.println(" ");
-
+//        System.out.println();
         int x = scan.nextInt();
         int c = scan.nextInt();
         int result1 = x*c;
