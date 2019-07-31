@@ -20,7 +20,7 @@ public class Main {
 //            sum += parsed;
 //        }
 //        System.out.println(sum);
-//    }
+//    }ds
 //        Ввести с консоли n целых чисел и поместить их в массив.
         System.out.print("Сколько целых чисел вы собираетесь ввести? ");
         Scanner in = new Scanner(System.in);
