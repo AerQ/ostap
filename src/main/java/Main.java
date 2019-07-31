@@ -21,25 +21,22 @@ public class Main {
 //        }
 //        System.out.println(sum);
 //    }
-//        Ввести с консоли n целых чисел и поместить их в массив.
-        System.out.print("Сколько целых чисел вы собираетесь ввести? ");
-        Scanner in = new Scanner(System.in);
-        int size = in.nextInt();
-        if (size == 0) {
-            System.out.print("Программа завершена.");
-            System.exit(0);
-        }
-        Integer[] numbers = new Integer[size];
-        System.out.print("Введите целые числа через пробел "
-                + "и нажмите <Enter>: ");
-        for (int i = 0; i < size; i++) {
-            numbers[i] = in.nextInt();
-        }
+        Scanner scan = new Scanner(System.in);
+        int num1 = scan.nextInt();
+        int num2 = scan.nextInt();
+        int result = num1*num2;
+        System.out.print("--------");
+        System.out.print("\n" + result);
+        System.out.println(" ");
+
+        int x = scan.nextInt();
+        int c = scan.nextInt();
+        int result1 = x*c;
+        System.out.println("--------");
+        System.out.print( result1);
 
 
-        findPalindromicNumbers(numbers);
-
-        String number = "123456";
+        String number = "1234567";
         int sum = 0;
         for (String charr : number.split("")) {
                 int parsed = Integer.parseInt(charr);
@@ -101,16 +98,6 @@ public class Main {
         logger.info("Максимальная и минимальная площадь квадрата:"+"\n" + triangles.get(0).getArea()+"\n" + triangles.get(triangles.size() -1 ).getArea());
 
 
-    }
-    private static void findPalindromicNumbers(Integer[] numbers) {
-        List<StringBuilder> result = new ArrayList<StringBuilder>();
-        for (Integer sourceNumber : numbers) {
-            StringBuilder s = new StringBuilder(sourceNumber.toString());
-            if (s.toString().equals(s.reverse().toString())) {
-                result.add(s);
-            }
-        }
-        System.out.println("Числа-палиндромы: " + result);
     }
 }
 
