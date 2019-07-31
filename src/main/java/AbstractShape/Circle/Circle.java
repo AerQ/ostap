@@ -2,7 +2,7 @@ package AbstractShape.Circle;
 
 import AbstractShape.AbstractShape;
 
-public class Circle extends AbstractShape {
+public class Circle extends AbstractShape implements Comparable<Circle> {
 
     private final double radius;
     final double pi = Math.PI;
@@ -23,5 +23,11 @@ public class Circle extends AbstractShape {
     @Override
     public String toString() {
         return(radius+""+pi);
+    }
+
+    @Override
+    public int compareTo(Circle anotherCircle) {
+        return this.getArea() == anotherCircle.getArea()? 0: this.getArea() == anotherCircle.getArea()? -1 :1;
+
     }
 }

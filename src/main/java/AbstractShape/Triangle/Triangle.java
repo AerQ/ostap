@@ -2,9 +2,9 @@ package AbstractShape.Triangle;
 
 import AbstractShape.AbstractShape;
 
-public class Triangle extends AbstractShape {
+public class Triangle extends AbstractShape implements Comparable<Triangle> {
 
-   private final double a,b,c;
+    private final double a, b, c;
 
     public Triangle(double a, double b, double c) {
         this.a = a;
@@ -28,6 +28,16 @@ public class Triangle extends AbstractShape {
 
     @Override
     public String toString() {
-        return(a+" "+ b +" "+ c);
+        return (a + " " + b + " " + c);
     }
+
+    @Override
+    public int compareTo(Triangle anotherTriangle) {
+        if (this.getArea() == anotherTriangle.getArea()){
+            return 0;
+        }if (this.getArea() < anotherTriangle.getArea()){
+            return -1;
+        }else return 1;
+    }
+
 }

@@ -24,27 +24,9 @@ public class Square extends AbstractShape implements Comparable<Square> {
         return(width+" "+height);
     }
 
-//    @Override
-//    public int compare(Square o1, Square o2) {
-//        if (o1.getArea() > o2.getArea())
-//            return 1;
-//        else if(o1.getArea()< o2.getArea())
-//            return -1;
-//        else
-//            return 0;
-//    }
-
-
     @Override
     public int compareTo(Square anotherSquare) {
-        if (this.getArea() == anotherSquare.getArea()){
-            return 0 ;
-        }
-        if (this.getArea() < anotherSquare.getArea()){
-            return -1;
-        }
-        else {
-            return 1;
-        }
+        return   this.getArea() == anotherSquare.getArea() ? 0 : this.getArea() < anotherSquare.getArea() ?  -1 : 1;
+
     }
 }
