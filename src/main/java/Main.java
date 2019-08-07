@@ -2,7 +2,9 @@ import AbstractShape.Circle.Circle;
 import AbstractShape.Square.Square;
 import AbstractShape.Triangle.Triangle;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.*;
 import java.util.Collections;
 import java.util.logging.Logger;
@@ -13,9 +15,42 @@ public class Main {
     private static ArrayList<Triangle> triangles = new ArrayList<>();
     private static ArrayList<Square> squares = new ArrayList<>();
     private static final Logger logger = Logger.getLogger("aerQ");
-    public static void main(String[] args) throws TooOldException,TooYoungException  {
-//        int sum = 0;
+    private static List<SaveInfo> saveInfos = new ArrayList<>();
 
+    public static void main(String[] args) throws TooOldException,TooYoungException  {
+       FileWriter fw = null;
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+        saveInfos.add(new SaveInfo());
+
+        try {
+            fw = new FileWriter("C:/Users/Остап/IdeaProjects/learning/src/main/log.txt", true);
+            for (SaveInfo saveInfo : saveInfos) {
+                fw.write(saveInfo.getTime() + " / " + SaveInfo.getSessionRandomValue(1, 999999999) + " / " + saveInfo.getRandomIP()+"\n");
+            }
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }finally {
+            try {
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+
+
+
+//        int sum = 0;
 //        for(String singleChar : ololo.split("")) {
 //            int parsed = Integer.parseInt(singleChar);
 //            sum += parsed;
@@ -45,9 +80,8 @@ public class Main {
             System.out.println("value:" + value);
         }catch (ArithmeticException e){
             System.out.println("ERROR:" + e.getMessage());
-            System.out.println("строка блока кода будет выполнена!!!");
         }
-        System.out.println("погнали");
+        System.out.println("???????");
 
         String number = "1234567";
         int sum = 0;
@@ -106,9 +140,9 @@ public class Main {
         Circle circle1 = new Circle(50);
         logger.info("Perimeter of the circle is ="+ circle1.getPerimeter()+"\n");
 
-        logger.info("Максимальная и минимальная площадь квадрата:"+"\n" + squares.get(0).getArea()+"\n" + squares.get(squares.size() -1 ).getArea() +"\n");
-        logger.info("Максимальная и минимальная площадь квадрата:"+"\n" + circles.get(0).getArea()+"\n" + circles.get(circles.size() -1 ).getArea() +"\n");
-        logger.info("Максимальная и минимальная площадь квадрата:"+"\n" + triangles.get(0).getArea()+"\n" + triangles.get(triangles.size() -1 ).getArea());
+        logger.info("Min and max value in the Square Collection:"+"\n" + squares.get(0).getArea()+"\n" + squares.get(squares.size() -1 ).getArea() +"\n");
+        logger.info("Min and max value in the Circle Collection:"+"\n" + circles.get(0).getArea()+"\n" + circles.get(circles.size() -1 ).getArea() +"\n");
+        logger.info("Min and max value in the Triangle Collection:"+"\n" + triangles.get(0).getArea()+"\n" + triangles.get(triangles.size() -1 ).getArea());
 
         int age = 39;
         checkAge(age);
