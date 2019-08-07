@@ -18,33 +18,10 @@ public class Main {
     private static List<SaveInfo> saveInfos = new ArrayList<>();
 
     public static void main(String[] args) throws TooOldException,TooYoungException  {
-       FileWriter fw = null;
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
-        saveInfos.add(new SaveInfo());
 
-        try {
-            fw = new FileWriter("C:/Users/Остап/IdeaProjects/learning/src/main/log.txt", true);
-            for (SaveInfo saveInfo : saveInfos) {
-                fw.write(saveInfo.getTime() + " / " + SaveInfo.getSessionRandomValue(1, 999999999) + " / " + saveInfo.getRandomIP()+"\n");
-            }
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }finally {
-            try {
-                fw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-        }
+      writeLogs();
+
 
 
 
@@ -154,6 +131,35 @@ public class Main {
             throw new TooOldException("Age" + age + "too old");
         }
             System.out.println("Age " + age + " It`s OK!");
+        }
+        public static void writeLogs(){
+            FileWriter fw = null;
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+            saveInfos.add(new SaveInfo());
+
+            try {
+                fw = new FileWriter("C:/Users/Остап/IdeaProjects/learning/src/main/log.txt", true);
+                for (SaveInfo saveInfo : saveInfos) {
+                    fw.write(saveInfo.getTime() + " / " + SaveInfo.getSessionRandomValue(1, 999999999) + " / " + saveInfo.getRandomIP()+"\n");
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }finally {
+                try {
+                    fw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
 }
 
