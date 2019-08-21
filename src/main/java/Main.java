@@ -19,6 +19,18 @@ public class Main {
     private static List<LogRecord> saveInfos = new ArrayList<>();
 
     public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        MyThread thread1 = new MyThread();
+        MyThread thread2 = new MyThread();
+        thread.start();
+        thread1.start();
+        thread2.start();
+        thread.setPriority(10);
+        thread1.setPriority(5);
+
+
+        writeLogs();
+        readLogs();
         readLogsOneline();
         deleteLastLogsDuringThreeDays();
     }
@@ -39,8 +51,9 @@ public class Main {
         }
     }
 
-    private static final long MIN_TIME = 1565635440574L;
-    private static final long MAX_TIME = 1565635440635L;
+
+    private static final long MIN_TIME = 1566119795179L;
+    private static final long MAX_TIME = 1566119813100L;
 
     private static boolean insideRange(long timestamp) {
         return timestamp > MIN_TIME && timestamp < MAX_TIME;
@@ -58,9 +71,7 @@ public class Main {
                     records.add(record);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
     }
@@ -85,12 +96,14 @@ public class Main {
 
     private static void deleteLastLogsDuringThreeDays() {
 
-        try (FileWriter fw = new FileWriter("C:/Users/Остап/IdeaProjects/learning/src/main/log.txt")) {
+        try (FileWriter fw = new FileWriter("C:/Users/Остап/IdeaProjects/learning/src/main/log2.txt")) {
 
             for (String line : Files.readAllLines(Paths.get("C:/Users/Остап/IdeaProjects/learning/src/main/log.txt"))) {
                 LogRecord record = new LogRecord(line);
                 if (new Date(record.getTime()).after(threeDays)) {
                     fw.write(record.toString());
+                    fw.flush();
+                    fw.close();
                 }
             }
         } catch (IOException e) {

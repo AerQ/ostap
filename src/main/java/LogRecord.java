@@ -7,13 +7,6 @@ public class LogRecord  {
     private  int session;
     private  String ip;
 
-    public LogRecord() {
-
-    }
-
-    public LogRecord(LogRecord record) {
-    }
-
 
     @Override
     public String toString() {
@@ -24,7 +17,7 @@ public class LogRecord  {
         return sb.toString();
     }
 
-    public LogRecord(List<String> logRecords) {
+    public LogRecord() {
         time = getTimestamp();
         ip = getRandomIP();
         session = getSessionRandomValue(1, 999999999);
