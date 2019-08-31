@@ -27,6 +27,7 @@ public class Prod {
         availability = getAvailability();
         color = getColor();
         description = getDescription();
+        
     }
 
 
