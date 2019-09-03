@@ -9,16 +9,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class ProductParserJAXB {
+    private final String url;
     private Document doc;
-    private String url = "https://prom.ua/p843085994-noutbuk-omen-dc0047ur.html";
-    private String getAvailability;
 
-    {
-        try {
-            doc = Jsoup.connect(url).get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+    public ProductParserJAXB( String url,Document doc) throws IOException {
+        this.url = url;
+        this.doc = Jsoup.connect(url).get();
+
     }
 
     public void marshall() {

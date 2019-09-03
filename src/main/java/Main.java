@@ -7,7 +7,7 @@ private static String url ="https://prom.ua/p843085994-noutbuk-omen-dc0047ur.htm
 
 
     public static void main(String[] args) throws JAXBException, IOException {
-        ProductParserJAXB a = new ProductParserJAXB();
+        ProductParserJAXB a = new ProductParserJAXB(url);
         a.marshall();
     }}
 //    private static void getInfo() {
