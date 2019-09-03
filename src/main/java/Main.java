@@ -7,26 +7,9 @@ private static String url ="https://prom.ua/p843085994-noutbuk-omen-dc0047ur.htm
 
 
     public static void main(String[] args) throws JAXBException, IOException {
-        ProductParserJAXB a = new ProductParserJAXB(url);
-        a.marshall();
+
     }}
-//    private static void getInfo() {
-//        List<ProductListParser> productInfos = new ArrayList<>();
-//        Elements divElements = doc.getElementsByAttributeValue("class", "x-layout");
-//        for (Element divElement : divElements) {
-//            String nameSelect = divElement.select("h1").text();
-//            String getUrl = divElement.baseUri();
-//            String getPrice = divElement.getElementsByAttributeValue("class", "x-product-price").get(0).text();
-//
-//            String getAvailability = divElement.getElementsByClass("x-product-presence").text();
-//            String getColor = String.valueOf(divElement.select("em").get(4).text());
-//            String des = divElement.getElementsByClass("x-title").get(2).text();
-//            productInfos.add(new ProductListParser(nameSelect, getUrl, getPrice, getAvailability, getColor, des));
-//            for (ProductListParser s : productInfos) {
-//                System.out.println(s);
-//            }
-//        }
-//    }
+
 //    private static void getDescr() {
 //
 //        Element table = doc.select("table").get(3);

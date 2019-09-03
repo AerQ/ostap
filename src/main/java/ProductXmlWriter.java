@@ -5,19 +5,22 @@ import java.io.File;
 import java.util.List;
 
 public class ProductXmlWriter {
-    Marshaller marshaller;
+   private Marshaller marshaller;
     private final String directory = "src/main/java/";
+
+    public ProductXmlWriter() throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(ProductInfo.class);
+        marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+    }
 
     public void writeProductsToXML(List<ProductInfo> products) throws JAXBException {
 
         for (ProductInfo productInfo :products) {
-            String fileName = "product.xml";
-            JAXBContext context = JAXBContext.newInstance(ProductInfo.class);
-            Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(productInfo, new File(directory+"product.xml"));
-            marshaller.marshal(productInfo, System.out);
+            String fileName = productInfo.getName().replaceAll(" ", "_");
+            marshaller.marshal(productInfo, new File(directory + fileName));
+        }
         }
 
     }
-}
+

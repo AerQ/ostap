@@ -30,11 +30,6 @@ public class ProductParserJAXB {
                 String getColor = String.valueOf(divElement.select("em").get(4).text());
                 String getDescription = divElement.getElementsByClass("x-title").get(2).text();
                 ProductInfo productInfo = new ProductInfo(getUrl, nameSelect, getPrice, getAvailability, getColor, getDescription);
-                JAXBContext context = JAXBContext.newInstance(ProductInfo.class);
-                Marshaller marshaller = context.createMarshaller();
-                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-                marshaller.marshal(productInfo, new File("src/main/java/product.xml"));
-                marshaller.marshal(productInfo, System.out);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
